@@ -70,7 +70,7 @@ void escutar( int porta)
 			if((BytesLidos = recv(cliente,mensagem,LEN,0))>0)
 			{					
 				mensagem[BytesLidos] ='\0';	
-				printf("%s \n",mensagem);
+				printf("mensagem recebida: %s \n",mensagem);
 			
 				BytesLidos=0;
 				memset(&mensagem, 0x00, sizeof(mensagem));
