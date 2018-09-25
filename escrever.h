@@ -12,14 +12,15 @@ struct sockaddr_in socket_vizinhoB;
 //*****************************************************************************************
 void escrever(int vizinhoA, int vizinhoB, char cliente)
 {
-	
-	printf("\n enviar para vizinho A  %d", vizinhoA);
 	printf("\n Cliente %c", cliente);
+	printf("\n enviar para vizinho A  %d", vizinhoA);
+	printf("\n enviar para vizinho B  %d", vizinhoB);	
 	
 		int infosocket_vizinhoA=0; //descritor socket
 		int infosocket_vizinhoB=0; //descritor socket
 		int servidor=0;
-		int len = sizeof(socket_vizinhoA);
+		int lenA = sizeof(socket_vizinhoA);
+		int lenB = sizeof(socket_vizinhoB);
 		char mensagem[LEN];
 		
 	//***************************************************************************************************
@@ -54,7 +55,7 @@ void escrever(int vizinhoA, int vizinhoB, char cliente)
 			if(tentativas>=3){
 				exit;
 			}
-		}while(connect(infosocket_vizinhoA, (struct sockaddr*)&socket_vizinhoA, len) != -1);
+		}while(connect(infosocket_vizinhoA, (struct sockaddr*)&socket_vizinhoA, lenA) != -1);
 
 		tentativas =0;
 		
@@ -64,7 +65,7 @@ void escrever(int vizinhoA, int vizinhoB, char cliente)
 			if(tentativas>=3){
 				exit;
 			}
-		}while(connect(infosocket_vizinhoB, (struct sockaddr*)&socket_vizinhoB, len) != -1);	
+		}while(connect(infosocket_vizinhoB, (struct sockaddr*)&socket_vizinhoB, lenB) != -1);	
 	//*********************************************************************************************************
 		
 	while(1){	
