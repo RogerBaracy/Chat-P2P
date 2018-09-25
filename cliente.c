@@ -90,20 +90,20 @@ int main(int qntd_argumentos , char *argumentos_valores[])
 
 	pthread_t threads[NUM_THREADS];
   
-        int i=1;  
+        int i=0;  
 
         system("clear");
         
-        for(i = 1; i <= NUM_THREADS; i++){
+        for(i = 0; i < NUM_THREADS; i++){
             Cliente.function=i;
             //printf("\n função: %d", Cliente.function);
             pthread_create(&threads[i], NULL, function, (void *) (&Cliente));		
             sleep(1);
         }
 
-        i=1;
+        i=0;
         
-        for(i=1; i<= NUM_THREADS; i++){		
+        for(i=0; i<= NUM_THREADS; i++){		
             pthread_join(threads[i], NULL);
         }
 } 
