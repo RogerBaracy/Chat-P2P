@@ -69,8 +69,8 @@ void escutar( int porta)
 		if((BytesLidos = recv(cliente,mensagem,LEN,0))>0)
 		{					
 			mensagem[BytesLidos] ='\0';	
-			printf("mensagem recebida: %s \n",mensagem);
-
+			printf("\n mensagem recebida: %s \n",mensagem);
+			printf("Digite Enter para enviar uma mensagem");
 			BytesLidos=0;
 			memset(&mensagem, 0x00, sizeof(mensagem));
 
